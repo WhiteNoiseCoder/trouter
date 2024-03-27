@@ -8,11 +8,6 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-// Settings is telegram router settings
-type Settings struct {
-	Timeout int `json:"timeout"`
-}
-
 // THandler is type for handler telegram request
 type THandler = func(bot *tgbotapi.BotAPI, update *tgbotapi.Update)
 
@@ -36,7 +31,7 @@ func (r *TRouter) AddHandler(match string, h THandler) {
 	r.handlers[match] = h
 }
 
-// AddDefaultHandler is func for add default telegram query handler
+// AddDefaultHandler is func for add telegram handler which handle query without scpecial command
 func (r *TRouter) AddDefaultHandler(h THandler) {
 	r.defaultHandler = h
 }
