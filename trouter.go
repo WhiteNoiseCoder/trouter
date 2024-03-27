@@ -15,10 +15,6 @@ type Settings struct {
 
 // THandler is type for handler telegram request
 type THandler = func(bot *tgbotapi.BotAPI, update *tgbotapi.Update)
-type matcher struct {
-	Match string
-	THandler
-}
 
 // TRouter is telegram router
 type TRouter struct {
